@@ -33,6 +33,44 @@
    <link rel="stylesheet" href="css/owl.theme.default.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
       media="screen">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    // GSAP Animations on Scroll
+    gsap.from(".project-card", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power3.out",
+    });
+
+    // Hover 3D Effect
+    const cards = document.querySelectorAll(".project-card");
+    cards.forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            gsap.to(card, {
+                rotationY: x / 20,
+                rotationX: -y / 20,
+                duration: 0.5,
+            });
+        });
+
+        card.addEventListener("mouseleave", () => {
+            gsap.to(card, {
+                rotationY: 0,
+                rotationX: 0,
+                duration: 0.5,
+            });
+        });
+    });
+});
+</script>
+
 </head>
 
 <body>
@@ -88,29 +126,71 @@
    </div>
    <!--costume header section end -->
    <!--software section start -->
-   <div class="software_section layout_padding padding_botoom_90">
-      <div class="container">
-         <h1 class="software_taital">Our Software</h1>
-         <p class="software_text">There are many variations of passages of Lorem Ipsum available, but the majority have
-            suffered alteration in some form, by injected humour</p>
-         <div class="software_section_2 layout_padding">
-            <div class="owl-carousel">
-               <div>
-                  <img src="images/img-6.png" class="image_6">
-                  <h4 class="ipsum_text">Ipsum available,</h4>
-               </div>
-               <div>
-                  <img src="images/img-7.png" class="image_6">
-                  <h4 class="ipsum_text">Ipsum available,</h4>
-               </div>
-               <div>
-                  <img src="images/img-8.png" class="image_6">
-                  <h4 class="ipsum_text">Ipsum available,</h4>
-               </div>
-            </div>
-         </div>
+   <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+          <div class="project-card">
+              <img src="images/liberty1.png" alt="Project 1">
+              <h3>Liberty Electronic</h3>
+      <p class="card-text text-justify">Liberty Electronics offers a comprehensive range of electronic products, catering to tech enthusiasts and professionals alike. Our user-friendly platform ensures a seamless shopping experience with detailed product information and customer reviews.</p>
+              <a href="https://muhammadibrahimbaig.github.io/Electronic-Site/" class="btn" target="_blank">Live Preview</a>
+          </div>
+          <div class="project-card">
+            <img src="images/Traders.png" alt="Project 1">
+            <h3>Gfx Artist & Web-Designer</h3>
+          <p>We are working on this project for creating a portfolio for gfx artist and Web-Designer we are createing a customize landing page for use for his portfolio</p>
+            <a href="https://traders141.github.io/I-I-Traders/" class="btn" target="_blank">Live preview </a>
+          </div>
+          <div class="project-card">
+              <img src="images/Honda.png" alt="Project 2">
+              <h3>Honda </h3>
+              <p>Honda Company offers a comprehensive platform for Honda car enthusiasts, providing detailed information on models, features, and the latest news and this website is simply design Ui and Ux .</p>
+              <a href="https://muhammadibrahimbaig.github.io/Honda/" class="btn" target="_blank">Live Preview</a>
+          </div>
+          
+          <!-- Add more project cards as needed -->
+          <div class="project-card">
+            <img src="images/Elec.png" alt="Project 1">
+            <h3>Electronic Site</h3>
+            <p>E-Commerce offers a modern, user-friendly platform for all your electronic needs. Utilizing JSON data to dynamically display our product catalog, we ensure the latest and most relevant products are always available.</p>
+            <a href="https://muhammadibrahimbaig.github.io/Project-Electronic/" class="btn" target="_blank">Live Preview</a>
+        </div>
+        <div class="project-card">
+            <img src="images/Netflix.png" alt="Project 2">
+            <h3>Netflix</h3>
+        <p class="card-text text-justify">Netflix offers a rich and immersive streaming experience, dynamically displaying content fetched via APIs and utilizing jQuery for seamless interactions this website is not fetch the data in the github live repo.</p>
+       
+            <a href="net.html" class="btn" target="_blank">View Site</a>
+        </div>
+        <div class="project-card">
+          <img src="images/port3.PNG" alt="Project 1">
+          <h3>Estate Agency</h3>
+          <p>EstatePro is a dynamic real estate listing platform designed to connect property buyers, sellers, and agents. The website offers a user-friendly interface, allowing visitors to search for properties based on various filters like location, price range, property type, and more. </p>
+          <a href="estate.html" class="btn" target="_blank">View Site</a>
       </div>
-   </div>
+     
+    <div class="project-card">
+      <img src="images/admin.png" alt="Project 1">
+      <h3>Online Carts Admin Dashboard</h3>
+      <p>Developed a dynamic and user-friendly admin dashboard with intuitive navigation and real-time data management. Leveraged technologies such as HTML, CSS, JavaScript, and PHP.</p><br><br>
+      <a href="project1.html" class="btn" target="_blank">View Site</a>
+  </div>
+  <div class="project-card">
+    <img src="images/std.png" alt="Project 1">
+    <h3>Studio Site</h3>
+    <p>We take pride in the projects we’ve created for our diverse clientele, ranging from startups to established brands. Each project is a testament to our commitment to quality, creativity, and client satisfaction. Explore our portfolio to see the innovative solutions we’ve crafted.</p>
+    <a href="project1.html" class="btn" target="_blank">View Details</a>
+</div>
+<!-- DotNet -->
+<div class="project-card">
+  <img src="images/Test.png" alt="Project 1">
+  <h3>Online Aptitude Test Portal</h3>
+<p>My Dotnet Core project, Online Aptitude Test Portal, is a web application designed to simplify the process of conducting aptitude tests. It features candidate registration, secure authentication, and automated result calculation, with tools for administrators to manage questions and track performance. Ideal for educational institutions and recruitment agencies, it ensures efficient and reliable test management.</p>
+  <a href="project1.html" class="btn" target="_blank">View Details</a>
+</div>
+
+      </div>
+  </section>
    <!--software section end -->
     <!--footer section start -->
     <div class="footer_section layout_padding">
